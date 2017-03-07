@@ -33,9 +33,9 @@ describe('loading express', function () {
       .expect(404, done);
   });
 
-  it("get '/examples' returns json", function getExample(done) {
+  it("get '/bucketlists' returns json", function getBucketlist(done) {
     request(server)
-      .get('/examples')
+      .get('/bucketlists')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
