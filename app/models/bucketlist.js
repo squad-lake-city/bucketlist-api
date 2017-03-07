@@ -2,10 +2,22 @@
 
 const mongoose = require('mongoose');
 
-const exampleSchema = new mongoose.Schema({
-  text: {
+const bucketlistSchema = new mongoose.Schema({
+  location: {
     type: String,
     required: true,
+  },
+  activity: {
+    type: String,
+    required: true,
+  },
+  complete: {
+    type: Number,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: false,
   },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
@@ -15,7 +27,7 @@ const exampleSchema = new mongoose.Schema({
 }, {
   timestamps: true,
   toJSON: {
-    virtuals: true,
+    virtuals: false,
     transform: function (doc, ret, options) {
       let userId = (options.user && options.user._id) || false;
       ret.editable = userId && userId.equals(doc._owner);
@@ -24,10 +36,6 @@ const exampleSchema = new mongoose.Schema({
   },
 });
 
-exampleSchema.virtual('length').get(function length() {
-  return this.text.length;
-});
+const Bucketlist = mongoose.model('Bucketlist', bucketlistSchema);
 
-const Example = mongoose.model('Example', exampleSchema);
-
-module.exports = Example;
+module.exports = Bucketlist;
