@@ -13,7 +13,7 @@ const bucketlistSchema = new mongoose.Schema({
           return num;
         }
       },
-      message: 'Must be between -90 and 90'
+      message: 'Must be between -180 and 180'
       }
     },
     latitude: {
