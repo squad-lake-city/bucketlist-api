@@ -10,17 +10,17 @@ chai.use(chaiAsPromised);
 
 const expect = chai.expect;
 
-const example = require('../lib/example');
+const bucketlist = require('../lib/bucketlist');
 
 describe('Sync', function () {
   it('is true', function () {
-    expect(example.sync(true)).to.be.true;
+    expect(bucketlist.sync(true)).to.be.true;
   });
 });
 
 describe('Async', function () {
   it('is true', function (done) {
-    example.async(true, function (error, value) {
+    bucketlist.async(true, function (error, value) {
       if (error || value !== true) {
         error = error || new Error(`value is ${value}`);
       }
@@ -32,6 +32,6 @@ describe('Async', function () {
 
 describe('Promise', function () {
   it('is true', function () {
-    return expect(example.promise(true)).to.eventually.be.true;
+    return expect(bucketlist.promise(true)).to.eventually.be.true;
   });
 });
