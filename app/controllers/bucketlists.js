@@ -12,14 +12,14 @@ const index = (req, res, next) => {
   Bucketlist.find()
     .then(bucketlists => res.json({
       bucketlists: bucketlists.map((e) =>
-        e.toJSON({ virtuals: true, user: req.user })),
+        e.toJSON({ virtuals: false, user: req.user })),
     }))
     .catch(next);
 };
 
 const show = (req, res) => {
   res.json({
-    bucketlist: req.bucketlist.toJSON({ virtuals: true, user: req.user }),
+    bucketlist: req.bucketlist.toJSON({ virtuals: false, user: req.user }),
   });
 };
 
@@ -31,7 +31,7 @@ const create = (req, res, next) => {
     .then(bucketlist =>
       res.status(201)
         .json({
-          bucketlist: bucketlist.toJSON({ virtuals: true, user: req.user }),
+          bucketlist: bucketlist.toJSON({ virtuals: false, user: req.user }),
         }))
     .catch(next);
 };

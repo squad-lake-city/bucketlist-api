@@ -4,29 +4,21 @@ const mongoose = require('mongoose');
 
 const bucketlistSchema = new mongoose.Schema({
   location: {
-    longitude: {
-      type: Number,
+    name: {
+      type: String,
       required: true,
-      validate: {
-        validator: function(num) {
-        if (num <= 180 && num >= -180) {
-          return num;
-        }
-      },
-      message: 'Must be between -180 and 180'
-      }
     },
-    latitude: {
+    lng: {
       type: Number,
       required: true,
-      validate: {
-        validator: function(num) {
-        if (num <= 90 && num >= -90) {
-          return num;
-        }
-      },
-      message: 'Must be between -90 and 90'
-      }
+    },
+    lat: {
+      type: Number,
+      required: true,
+    },
+    place_id: {
+      type: String,
+      required: true
     }
   },
   activity: {
@@ -56,8 +48,10 @@ const bucketlistSchema = new mongoose.Schema({
   },
 }, {
   timestamps: true,
+
+
   toJSON: {
-    virtuals: true,
+    virtuals: false,
     transform: function (doc, ret, options) {
       let userId = (options.user && options.user._id) || false;
       ret.editable = userId && userId.equals(doc._owner);
@@ -66,42 +60,6 @@ const bucketlistSchema = new mongoose.Schema({
   },
   toObject: {
     virtuals: true
-  }
-});
-
-bucketlistSchema.virtual('isNorthernHemisphere?').get(function() {
-  let equator = 0;
-  if (this.latitude > equator) {
-    return true;
-  } else {
-    return false;
-  }
-});
-
-bucketlistSchema.virtual('isSoutherHemisphere?').get(function() {
-  let equator = 0;
-  if (this.latitude < equator) {
-    return true;
-  } else {
-    return false;
-  }
-});
-
-bucketlistSchema.virtual('isWesternHemisphere?').get(function() {
-  let pole = 0;
-  if (this.longitude < pole) {
-    return true;
-  } else {
-    return false;
-  }
-});
-
-bucketlistSchema.virtual('isEasternHemisphere?').get(function() {
-  let pole = 0;
-  if (this.longitude > pole) {
-    return true;
-  } else {
-    return false;
   }
 });
 
