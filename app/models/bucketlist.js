@@ -59,7 +59,7 @@ const bucketlistSchema = new mongoose.Schema({
     },
   },
   toObject: {
-    virtuals: true
+    virtuals: false
   }
 });
 
