@@ -10,7 +10,12 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "bucketlist": {
-      "location": "'"${LOCATION}"'",
+      "location": {
+        "name": "'"${NAME}"'",
+        "lng": "'"${LNG}"'",
+        "lat": "'"${LAT}"'",
+        "place_id": "'"${PLACE_ID}"'"
+      },
       "activity": "'"${ACTIVITY}"'",
       "complete": "'"${COMPLETE}"'",
       "description": "'"${DESCRIPTION}"'"
