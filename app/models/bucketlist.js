@@ -3,23 +3,21 @@
 const mongoose = require('mongoose');
 
 const bucketlistSchema = new mongoose.Schema({
-  location: {
-    name: {
-      type: String,
-      required: true,
-    },
-    lng: {
-      type: Number,
-      required: true,
-    },
-    lat: {
-      type: Number,
-      required: true,
-    },
-    place_id: {
-      type: String,
-      required: true
-    }
+  name: {
+    type: String,
+    required: true,
+  },
+  lng: {
+    type: Number,
+    required: true,
+  },
+  lat: {
+    type: Number,
+    required: true,
+  },
+  place_id: {
+    type: String,
+    required: true
   },
   activity: {
     type: String,
