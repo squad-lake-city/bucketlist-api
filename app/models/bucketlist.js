@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 const bucketlistSchema = new mongoose.Schema({
-  name: {
+  location: {
     type: String,
     required: true
   },
@@ -13,6 +13,10 @@ const bucketlistSchema = new mongoose.Schema({
   },
   place_id: {
     type: String,
+    required: true
+  },
+  completed: {
+    type: Number,
     required: true
   },
   _owner: {
