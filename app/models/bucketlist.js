@@ -11,7 +11,7 @@ const bucketlistSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  place_id: {
+  placeId: {
     type: String,
     required: true
   },
