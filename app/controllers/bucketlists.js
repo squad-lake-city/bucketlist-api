@@ -9,7 +9,7 @@ const setUser = require('./concerns/set-current-user');
 const setModel = require('./concerns/set-mongoose-model');
 
 const index = (req, res, next) => {
-  Bucketlist.find()
+  Bucketlist.find({ _owner: req.user._id })
     .then(bucketlists => res.json({
       bucketlists: bucketlists.map((e) =>
         e.toJSON({ virtuals: false, user: req.user })),
