@@ -1,3 +1,13 @@
+
+## Bucketlist
+
+Bucketlist is an application for keeping track of all the wonderful places
+you have visited and hope to visit in your lifetime. Through the use of Google's
+third-party API for places, users can select any location from accross the globe
+and save it to their 'bucketlist' along with a brief explanation of what the
+user wants to do in each of their bucketlist locations and whether or not they
+have 'checked' that location/activity off their 'bucketlist' yet.
+
 ## Structure
 
 Dependencies are stored in [`package.json`](package.json).
