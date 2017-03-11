@@ -42,6 +42,7 @@ own scripts to test your custom API.
 
 Request:
 
+```sh
 API="http://localhost:4741"
 URL_PATH="/bucketlists"
 
@@ -49,7 +50,9 @@ curl "${API}${URL_PATH}/${ID}" \
   --include \
   --request GET
 
+
 echo
+```
 
 ```sh
 scripts/bucketlist-show.sh
@@ -59,6 +62,7 @@ scripts/bucketlist-show.sh
 
 Request:
 
+```sh
 API="http://localhost:4741"
 URL_PATH="/bucketlists"
 
@@ -67,6 +71,8 @@ curl "${API}${URL_PATH}" \
   --request GET
 
 echo
+
+```
 
 ```sh
 scripts/bucketlist-index.sh
@@ -77,6 +83,7 @@ scripts/bucketlist-index.sh
 
 Request:
 
+```sh
 API="http://localhost:4741"
 URL_PATH="/bucketlists"
 
@@ -100,6 +107,7 @@ curl "${API}${URL_PATH}" \
   }'
 
 echo
+```
 
 ```sh
 scripts/bucketlist-create.sh
@@ -109,7 +117,7 @@ scripts/bucketlist-create.sh
 
 Request:
 
-
+```sh
 API="http://localhost:4741"
 URL_PATH="/bucketlists"
 
@@ -134,6 +142,8 @@ curl "${API}${URL_PATH}/${ID}" \
 
 echo
 
+```
+
 ```sh
 scripts/bucketlist-update.sh
 ```
@@ -142,6 +152,7 @@ scripts/bucketlist-update.sh
 
 Request:
 
+```sh
 API="http://localhost:4741"
 URL_PATH="/bucketlists"
 
@@ -151,6 +162,8 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Authorization: Token token=${TOKEN}"
 
 echo
+
+```
 
 ```sh
 scripts/bucketlist-destroy.sh
