@@ -8,7 +8,7 @@ and save it to their 'bucketlist' along with a brief explanation of what the
 user wants to do in each of their bucketlist locations and whether or not they
 have 'checked' that location/activity off their 'bucketlist' yet.
 
-## Link to application
+## Link to Application
 
 https://squad-lake-city.github.io/bucketlist/
 
