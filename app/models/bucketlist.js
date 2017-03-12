@@ -2,6 +2,10 @@
 
 const mongoose = require('mongoose');
 
+// Bucketlist Schema
+// requires an owner, a completion status, a placeId, an activity, and location
+// for each bucketlist.
+
 const bucketlistSchema = new mongoose.Schema({
   location: {
     type: String,

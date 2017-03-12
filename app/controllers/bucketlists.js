@@ -8,6 +8,7 @@ const authenticate = require('./concerns/authenticate');
 const setUser = require('./concerns/set-current-user');
 const setModel = require('./concerns/set-mongoose-model');
 
+// show all/index bucketlist function
 const index = (req, res, next) => {
   Bucketlist.find({ _owner: req.user._id })
     .then(bucketlists => res.json({
@@ -17,12 +18,14 @@ const index = (req, res, next) => {
     .catch(next);
 };
 
+// show specific bucketlist function
 const show = (req, res) => {
   res.json({
     bucketlist: req.bucketlist.toJSON({ virtuals: false, user: req.user }),
   });
 };
 
+//create bucktlist function
 const create = (req, res, next) => {
   let bucketlist = Object.assign(req.body.bucketlist, {
     _owner: req.user._id,
@@ -36,6 +39,7 @@ const create = (req, res, next) => {
     .catch(next);
 };
 
+//update bucketlist function
 const update = (req, res, next) => {
   delete req.body._owner;  // disallow owner reassignment.
   req.bucketlist.update(req.body.bucketlist)
@@ -43,6 +47,7 @@ const update = (req, res, next) => {
     .catch(next);
 };
 
+//destroy bucketlist function
 const destroy = (req, res, next) => {
   req.bucketlist.remove()
     .then(() => res.sendStatus(204))

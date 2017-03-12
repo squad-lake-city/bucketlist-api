@@ -7,7 +7,7 @@ module.exports = require('lib/wiring/routes')
 // what to run for `GET /`
 .root('root#root')
 
-// standards RESTful routes
+// standards RESTful routes for all bucketlist actions
 .resources('bucketlists')
 
 // users of the app have special requirements
