@@ -16,7 +16,7 @@ const bucketlistSchema = new mongoose.Schema({
     required: true
   },
   completed: {
-    type: Number,
+    type: Boolean,
     required: true
   },
   _owner: {
